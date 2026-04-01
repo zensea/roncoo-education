@@ -4,7 +4,7 @@
 package com.roncoo.education.user.service.api.req;
 
 import com.roncoo.education.common.core.enums.LoginClientEnum;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -23,27 +23,27 @@ public class LoginReq implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "手机号", required = true)
+    @Schema(description = "手机号", requiredMode = Schema.RequiredMode.REQUIRED)
     private String mobile;
 
-    @ApiModelProperty(value = "登录密码，RSA加密", required = true)
+    @Schema(description = "登录密码，RSA加密", requiredMode = Schema.RequiredMode.REQUIRED)
     private String mobilePwdEncrypt;
 
-    @ApiModelProperty(value = "验证KEY", required = true)
+    @Schema(description = "验证KEY", requiredMode = Schema.RequiredMode.REQUIRED)
     private String verToken;
 
-    @ApiModelProperty(value = "验证码", required = true)
+    @Schema(description = "验证码", requiredMode = Schema.RequiredMode.REQUIRED)
     private String verCode;
 
-    @ApiModelProperty(value = "登录客户端", required = false)
+    @Schema(description = "登录客户端")
     private Integer loginClient = LoginClientEnum.PC.getCode();
 
-    @ApiModelProperty(value = "登录IP", required = false)
+    @Schema(description = "登录IP")
     private String loginIp;
 
-    @ApiModelProperty(value = "浏览器", required = false)
+    @Schema(description = "浏览器")
     private String browser;
 
-    @ApiModelProperty(value = "操作系统", required = false)
+    @Schema(description = "操作系统")
     private String os;
 }
